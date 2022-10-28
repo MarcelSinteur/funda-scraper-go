@@ -15,6 +15,7 @@ func ParseFundaHtml(r http.Response) ([]models.Property, error) {
 
 	if err != nil {
 		log.Fatal(err)
+		return nil, err
 	}
 
 	var properties []models.Property
