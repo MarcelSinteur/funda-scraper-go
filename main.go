@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
@@ -50,19 +49,10 @@ func fetchData(client http.Client, req *http.Request) ([]byte, error) {
 		return nil, err
 	}
 
-	json, err := parseToJson(properties)
+	json, err := models.ParsePropertiesToJson(properties)
 
 	if err != nil {
 		return nil, err
 	}
-	return json, nil
-}
-
-func parseToJson(properties []models.Property) ([]byte, error) {
-	json, err := json.Marshal(properties)
-	if err != nil {
-		return nil, err
-	}
-
 	return json, nil
 }
