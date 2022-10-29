@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 	"time"
@@ -32,9 +31,10 @@ func main() {
 		json, err := fetchData(client, req)
 		if err != nil {
 			log.Fatal(err)
+			return
 		}
 
-		fmt.Println(json)
+		helpers.GenerateJsonFiles(json)
 	}
 }
 
@@ -49,7 +49,7 @@ func fetchData(client http.Client, req *http.Request) ([]byte, error) {
 		return nil, err
 	}
 
-	json, err := models.ParsePropertiesToJson(properties)
+	json, err := models.SerializePropertiesToJson(properties)
 
 	if err != nil {
 		return nil, err

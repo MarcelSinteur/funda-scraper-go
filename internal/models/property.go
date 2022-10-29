@@ -6,14 +6,15 @@ type Property struct {
 	Address       string
 	PostalCode    string
 	City          string
-	Price         string
-	FloorArea     string
-	PlotArea      string
-	NumberOfRooms string
+	Price         int
+	FloorArea     int
+	PlotArea      int
+	NumberOfRooms int
 }
 
-func ParsePropertiesToJson(props []Property) ([]byte, error) {
-	json, err := json.Marshal(props)
+//SerializePropertiesToJson serializes a slice of 'Property' to JSON
+func SerializePropertiesToJson(props []Property) ([]byte, error) {
+	json, err := json.MarshalIndent(props, "", "   ")
 	if err != nil {
 		return nil, err
 	}

@@ -1,0 +1,119 @@
+[
+   {
+      "Address": "Decimastraat 36",
+      "PostalCode": "2315HK",
+      "City": "Leiden",
+      "Price": "€ 450.000 k.k.",
+      "FloorArea": "115 m²",
+      "PlotArea": "114 m²",
+      "NumberOfRooms": "5 kamers"
+   },
+   {
+      "Address": "Rijndijkstraat 6",
+      "PostalCode": "2313NK",
+      "City": "Leiden",
+      "Price": "€ 435.000 k.k.",
+      "FloorArea": "122 m²",
+      "PlotArea": "117 m²",
+      "NumberOfRooms": "4 kamers"
+   },
+   {
+      "Address": "Hazezegge 15",
+      "PostalCode": "2318ZH",
+      "City": "Leiden",
+      "Price": "€ 450.000 k.k.",
+      "FloorArea": "132 m²",
+      "PlotArea": "128 m²",
+      "NumberOfRooms": "5 kamers"
+   },
+   {
+      "Address": "Dr. Martinus van der Stoelstraat 23",
+      "PostalCode": "2251RK",
+      "City": "Voorschoten",
+      "Price": "€ 435.000 k.k.",
+      "FloorArea": "106 m²",
+      "PlotArea": "185 m²",
+      "NumberOfRooms": "4 kamers"
+   },
+   {
+      "Address": "Roemer Visscherstraat 29",
+      "PostalCode": "2332TT",
+      "City": "Leiden",
+      "Price": "€ 435.000 k.k.",
+      "FloorArea": "100 m²",
+      "PlotArea": "106 m²",
+      "NumberOfRooms": "4 kamers"
+   },
+   {
+      "Address": "Achter de Lindehoeve 8",
+      "PostalCode": "2251PJ",
+      "City": "Voorschoten",
+      "Price": "€ 450.000 k.k.",
+      "FloorArea": "105 m²",
+      "PlotArea": "132 m²",
+      "NumberOfRooms": "5 kamers"
+   },
+   {
+      "Address": "Schubertlaan 188",
+      "PostalCode": "2324EC",
+      "City": "Leiden",
+      "Price": "€ 450.000 k.k.",
+      "FloorArea": "117 m²",
+      "PlotArea": "177 m²",
+      "NumberOfRooms": "6 kamers"
+   },
+   {
+      "Address": "Nannie van Wehlstraat 8",
+      "PostalCode": "2331GB",
+      "City": "Leiden",
+      "Price": "€ 425.000 k.k.",
+      "FloorArea": "103 m²",
+      "PlotArea": "131 m²",
+      "NumberOfRooms": "5 kamers"
+   },
+   {
+      "Address": "Eikenrode 17",
+      "PostalCode": "2317BC",
+      "City": "Leiden",
+      "Price": "€ 395.000 k.k.",
+      "FloorArea": "122 m²",
+      "PlotArea": "",
+      "NumberOfRooms": "5 kamers"
+   },
+   {
+      "Address": "Akeleituin 4",
+      "PostalCode": "2317NC",
+      "City": "Leiden",
+      "Price": "€ 385.000 k.k.",
+      "FloorArea": "100 m²",
+      "PlotArea": "128 m²",
+      "NumberOfRooms": "4 kamers"
+   },
+   {
+      "Address": "Iepenrode 51",
+      "PostalCode": "2317BK",
+      "City": "Leiden",
+      "Price": "€ 418.000 k.k.",
+      "FloorArea": "118 m²",
+      "PlotArea": "130 m²",
+      "NumberOfRooms": "5 kamers"
+   },
+   {
+      "Address": "Olmenrode 11",
+      "PostalCode": "2317BP",
+      "City": "Leiden",
+      "Price": "€ 395.000 k.k.",
+      "FloorArea": "120 m²",
+      "PlotArea": "140 m²",
+      "NumberOfRooms": "5 kamers"
+   },
+   {
+      "Address": "Hulstbes 5",
+      "PostalCode": "2318AS",
+      "City": "Leiden",
+      "Price": "€ 450.000 k.k.",
+      "FloorArea": "125 m²",
+      "PlotArea": "121 m²",
+      "NumberOfRooms": "5 kamers"
+   }
+]
