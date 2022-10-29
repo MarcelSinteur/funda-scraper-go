@@ -10,9 +10,13 @@ import (
 	"github.com/marcelsinteur/funda-scraper-go/internal/models"
 )
 
-var configuration = config.GetConfig()
-
 func main() {
+	configuration, err := config.GetConfig()
+	if err != nil {
+		log.Fatal(err)
+		return
+	}
+
 	url := configuration.BuildUrlString()
 
 	client := http.Client{}
@@ -27,7 +31,7 @@ func main() {
 		"Connection":   {"keep-alive"},
 	}
 
-	for range time.Tick(time.Second * 5) {
+	for range time.Tick(time.Hour * 4) {
 		json, err := fetchData(client, req)
 		if err != nil {
 			log.Fatal(err)

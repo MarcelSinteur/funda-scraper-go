@@ -1,0 +1,17 @@
+{
+    "location": [
+        "voorschoten",
+        "leiden"
+    ],
+    "price_from": 350000,
+    "price_to": 450000,
+    "property_type": "woonhuis",
+    "status": "beschikbaar",
+    "floor_area": 100,
+    "plot_area": 0,
+    "number_of_rooms": 4,
+    "construction_type": "bestaande-bouw",
+    "exterior_space": [
+        "tuin"
+    ]
+}

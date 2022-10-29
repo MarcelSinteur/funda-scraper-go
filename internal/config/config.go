@@ -1,6 +1,8 @@
 package config
 
 import (
+	"encoding/json"
+	"os"
 	"strconv"
 	"strings"
 )
@@ -8,77 +10,46 @@ import (
 // Config describes the search parameters and holds all the values to build a valid search
 type Config struct {
 	BaseUrl          string
-	Location         []string
-	PriceFrom        int
-	PriceTo          int
-	PropertyType     string
-	Status           Status
-	FloorArea        int
-	PlotArea         int
-	NumberOfRooms    int
-	ConstructionType ConstructionType
-	ExteriorSpace    []string
+	Location         []string `json:"location"`
+	PriceFrom        int      `json:"price_from"`
+	PriceTo          int      `json:"price_to"`
+	PropertyType     string   `json:"property_type"`
+	Status           string   `json:"status"`
+	FloorArea        int      `json:"floor_area"`
+	PlotArea         int      `json:"plot_area"`
+	NumberOfRooms    int      `json:"number_of_rooms"`
+	ConstructionType string   `json:"construction_type"`
+	ExteriorSpace    []string `json:"exterior_space"`
 }
 
 // GetConfig gets a Config type, populated with default values
-func GetConfig() Config {
-	var config = Config{
-		BaseUrl:          "https://www.funda.nl/koop/",      //Base URL for the Funda website
-		Location:         []string{"voorschoten", "leiden"}, //Can have multiple locations
-		PriceFrom:        350000,                            //Minimum price
-		PriceTo:          450000,                            //Maximum price
-		PropertyType:     "woonhuis",                        //House or apartment
-		Status:           Available,                         //Options are 'Available', 'UnderNegotation' or 'Sold'
-		FloorArea:        100,                               //Minimum floor area
-		NumberOfRooms:    4,                                 //Total number of rooms including bedrooms
-		ConstructionType: Resale,                            //Options are 'Resale' or 'New'
-		ExteriorSpace:    []string{"tuin"},                  //Options are 'tuin' (garden), 'balkon' (balcony) or 'dakterras' (roof terrace)
+func GetConfig() (Config, error) {
+	configJson, err := os.ReadFile("./config.json")
+
+	if err != nil {
+		return Config{}, err
 	}
 
-	return config
+	config, err := parseToConfig(configJson)
+	if err != nil {
+		return Config{}, err
+	}
+
+	baseUrl := "https://www.funda.nl/koop/"
+	config.BaseUrl = baseUrl
+
+	return config, nil
 }
 
-// Status describes the status of houses that needs to be filtered on
-type Status int64
-
-const (
-	Available Status = iota
-	Sold
-	UnderNegotation
-)
-
-// ToString converts the Status enum to a valid string which is accepted by the Funda website
-func (s Status) ToString() string {
-	switch s {
-	case Available:
-		return "beschikbaar"
-	case Sold:
-		return "verkocht"
-	case UnderNegotation:
-		return "in-onderhandeling"
+// parseToConfig parses the config.json file to a Config type
+func parseToConfig(j []byte) (Config, error) {
+	var config Config
+	err := json.Unmarshal(j, &config)
+	if err != nil {
+		return Config{}, err
 	}
 
-	return "beschikbaar"
-}
-
-// ConstructionType describes the type of construction for houses that needs to be filtered on
-type ConstructionType int64
-
-const (
-	Resale ConstructionType = iota
-	New
-)
-
-// ToString converts the ConstructionType enum to a valid string which is accepted by the Funda website
-func (s ConstructionType) ToString() string {
-	switch s {
-	case Resale:
-		return "bestaande-bouw"
-	case New:
-		return "nieuwbouw"
-	}
-
-	return "bestaande-bouw"
+	return config, nil
 }
 
 // GetLocationString returns a location string formatted in the way the Funda website expects
@@ -131,9 +102,13 @@ func (config *Config) GetPlotAreaString() string {
 func (config *Config) BuildUrlString() string {
 	urlString := config.BaseUrl
 	urlString += config.GetLocationString() + "/"
-	urlString += config.Status.ToString() + "/"
+	urlString += config.Status + "/"
 	urlString += config.GetPriceString() + "/"
-	urlString += config.GetFloorAreaString() + "/"
+
+	if config.PlotArea != 0 {
+		urlString += config.GetFloorAreaString() + "/"
+	}
+
 	urlString += config.PropertyType + "/"
 
 	if config.PlotArea != 0 {
@@ -141,7 +116,7 @@ func (config *Config) BuildUrlString() string {
 	}
 
 	urlString += config.GetNumberOfRoomsString() + "/"
-	urlString += config.ConstructionType.ToString() + "/"
+	urlString += config.ConstructionType + "/"
 	urlString += config.GetExteriorSpaceString()
 
 	return urlString
