@@ -1,0 +1,108 @@
+{{extends "layouts/application.jet"}}
+{{block body()}}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="mt-3">Zoekinstellingen</h1>
+            <form action="#" method="post" name="search-form" id="search-form">
+                <div class="row gy-2 gx-2 align-items-center">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="location" class="form-label">Locatie</label>
+                            <input type="text" class="form-control" name="location" id="location" required
+                                placeholder="Voorschoten,Leiden" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="status" class="form-label">Status</label>
+                            <select id="status" class="form-control" name="status">
+                                <option value="beschikbaar">Beschikbaar</option>
+                                <option value="in-onderhandeling">In onderhandeling</option>
+                                <option value="verkocht">verkocht</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gy-2 gx-2 align-items-center">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="property_type" class="form-label">Soort aanbod</label>
+                            <select id="property_type" class="form-control" name="property_type">
+                                <option value="woonhuis">Woonhuis</option>
+                                <option value="appartement">Appartement</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="construction_type" class="form-label">Soort bouw</label>
+                            <select id="construction_type" class="form-control" name="construction_type">
+                                <option value="bestaande-bouw">Bestaande bouw</option>
+                                <option value="nieuwbouw">Nieuwbouw</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gy-2 gx-2 align-items-center">
+                    <div class="col">
+                        <div class="mb-3"><label for="price_from" class="form-label">Prijs van</label>
+                            <input type="number" class="form-control" name="price_from" id="price_from"
+                                autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="price_to" class="form-label">Prijs tot</label>
+                            <input type="number" class="form-control" name="price_to" id="price_to" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+                <div class="row gy-2 gx-2 align-items-center">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="floor_area" class="form-label">Oppervlakte</label>
+                            <input type="number" min="1" class="form-control" name="floor_area" id="floor_area"
+                                autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="plot_area" class="form-label">Oppervlakte grond</label>
+                            <input type="number" min="1" class="form-control" name="plot_area" id="plot_area"
+                                autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+                <div class="row gy-2 gx-2 align-items-center">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="number_of_rooms" class="form-label">Aantal kamers</label>
+                            <input type="number" min="1" class="form-control" name="number_of_rooms"
+                                id="number_of_rooms" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="exterior_space" class="form-label">Buitenruimte</label>
+                            <input type="text" class="form-control" name="exterior_space" id="exterior_space"
+                                placeholder="Tuin,Balkon" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+                <div class="row gy-2 gx-2 align-items-center">
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <label for="interval" class="form-label">Herhalen per hoeveel uur</label>
+                            <input type="number" class="form-control" name="interval" id="interval" required
+                                autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+                <div class="row gy-2 gx-2 align-items-center">
+                    <button type="submit" class="btn btn-primary">Start zoekopdracht</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    {{end}}
