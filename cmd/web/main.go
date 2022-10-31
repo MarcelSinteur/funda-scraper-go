@@ -95,14 +95,13 @@ func initialize() error {
 	//Change this to true when in production
 	app.InProduction = false
 	app.View = jet.NewHTMLSet("./views")
+	app.BaseUrl = "https://funda.nl/koop"
 
 	session = scs.New()
 	session.Lifetime = 24 * time.Hour
 	session.Cookie.Persist = true
 	session.Cookie.SameSite = http.SameSiteLaxMode
 	session.Cookie.Secure = app.InProduction
-
-	app.Session = session
 
 	repo := handlers.NewRepo(&app)
 	handlers.NewHandlers(repo)
